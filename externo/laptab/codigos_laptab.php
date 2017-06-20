@@ -64,7 +64,7 @@
 
           
           
-             <form name="equipos" id="equipos" method="POST" id="form_rep" onsubmit="return validarFormulario()">
+            <form name="equipos" id="equipos" method="POST" id="form_rep" onsubmit="return validarFormulario()">
             <div class="row show-grid">
             <div class="col-md-4">
             <label>Tipo de Equipo:</label><br>
@@ -121,7 +121,7 @@
             </div>
             <div  class="col-md-4">
             <label>PROVISIONAL NUMBER:</label><br>
-            <input type="text" id="churro" placeholder="Ej: S99" name="number" class="form-control">
+            <input type="text" id="number" placeholder="Ej: S99" name="number" class="form-control">
             </div>
             
 
@@ -130,7 +130,7 @@
             <div class="row show-grid">
             <div class="col-md-12">
             <label>Diagnostico equipo:</label><br>
-            <textarea rows="6" name="diag" placeholder="Ej: Bloqueada" class="form-control"></textarea> 
+            <textarea rows="6" id="diagnostico" name="diag" placeholder="Ej: Bloqueada" class="form-control"></textarea> 
             </div>
             </div>
             <div class="col-md-12">
@@ -152,7 +152,7 @@
             </div>
             <div class="row show-grid">
             <div class="col-md-12">
-            <input type="submit" name="aceptar" class="btn btn-primary" >
+            <input type="button" id="aceptar" name="aceptar" value="Aceptar" class="btn btn-primary" >
             <input type="button" name="cancelar" value="Cancelar" class="btn btn-primary" >
             </div>
             </div>
@@ -237,108 +237,83 @@
            });
     /*llave del document ready*/ });
 
-     function validarFormulario(){
+           function validarDatos(){
 
-        var tipoeq = document.getElementById("equipo").value;
-        var serie = document.getElementById("serie").value;
-        var clave = document.getElementById("clave").value;
-        var escuela = document.getElementById("escu").value;
-        var loc = document.getElementById("loc").value;
-        var mun = document.getElementById("serie").value;
-        var nino = document.getElementById("nino").value;
-        var curp = document.getElementById("curp").value;
+            if($("#serie").val() == ""){
+                sweetAlert("Cuidado", "El campo del No serie esta vacio rellene por favor.", "error");
+                $("#serie").focus();
+                return false;
+            }
+            if($("#clave").val() == ""){
+                sweetAlert("Cuidado", "El campo del Clave CT esta vacio rellene por favor.", "error");
+                $("#clave").focus();
+                return false;
+            }
+            if($("#escu").val() == ""){
+                sweetAlert("Cuidado", "El campo del Escuela esta vacio rellene por favor.", "error");
+                $("#escu").focus();
+                return false;
+            }
+            if($("#loc").val() == ""){
+                sweetAlert("Cuidado", "El campo del Localidad esta vacio rellene por favor.", "error");
+                $("#loc").focus();
+                return false;
+            }
+            if($("#mun").val() == ""){
+                sweetAlert("Cuidado", "El campo del Municipio esta vacio rellene por favor.", "error");
+                $("#mun").focus();
+                return false;
+            }
+            if($("#nino").val() == ""){
+                sweetAlert("Cuidado", "El campo del Nombre del Niñ@ esta vacio rellene por favor.", "error");
+                $("#nino").focus();
+                return false;
+            }
+            if($("#curp").val() == ""){
+                sweetAlert("Cuidado", "El campo del CURP esta vacio rellene por favor.", "error");
+                $("#curp").focus();
+                return false;
+            }
+            if($("#boot").val() == ""){
+                sweetAlert("Cuidado", "El campo del BOOT TIK esta vacio rellene por favor.", "error");
+                $("#boot").focus();
+                return false;
+            }
+            if($("#hard").val() == ""){
+                sweetAlert("Cuidado", "El campo HARDWARE ID  esta vacio rellene por favor.", "error");
+                $("#hard").focus();
+                return false;
+            }
+            if($("#number").val() == ""){
+                sweetAlert("Cuidado", "El campo PRIVISIONAL NUMBER esta vacio rellene por favor.", "error");
+                $("#number").focus();
+                return false;
+            }
+            if($("#nombre").val() == ""){
+                sweetAlert("Cuidado", "El campo de Nombre completo del solicitante  esta vacio rellene por favor.", "error");
+                $("#nombre").focus();
+                return false;
+            }
+            
 
-        var boot =   document.getElementById("boot").value;
-        var hard =   document.getElementById("hard").value;
-        var number = document.getElementById("churro").value;
-        var nombre = document.getElementById("nombre").value;
-        var cel =    document.getElementById("cel").value;
-        var correo = document.getElementById("correo").value;
+            if($("#cel").val() == ""){
+                sweetAlert("Cuidado", "El campo Tel o Cel esta vacio por favor rellene por favor.", "error");
+                $("#cel").focus();
+                return false;
+            }
+            if($("#correo").val() == ""){
+                sweetAlert("Cuidado", "El campo Correo Electronico esta vacio por favor rellene por favor.", "error");
+                $("#correo").focus();
+                return false;
+            }
 
-        if(serie == null || serie.length == 0){
-          sweetAlert("Oops...", "El campo del No serie esta vacio rellene por favor.", "error");
-          return false;
-         }
+            return true;
 
-         if(clave == null || clave.length == 0){
-          sweetAlert("Oops...", "El campo del Clave CT esta vacio rellene por favor.", "error");
-          return false;
-         }
+           }
 
-          if(escuela == null || escuela.length == 0){
-          sweetAlert("Oops...", "El campo del Escuela esta vacio rellene por favor.", "error");
-          return false;
-         }
-
-          if(loc == null || loc.length == 0){
-          sweetAlert("Oops...", "El campo del Localidad esta vacio rellene por favor.", "error");
-          return false;
-         }
-
-          if(mun == null || mun.length == 0){
-          sweetAlert("Oops...", "El campo del Municipio esta vacio rellene por favor.", "error");
-          return false;
-         }
-
-         if(nino == null || nino.length == 0){
-          sweetAlert("Oops...", "El campo del Nombre del Niñ@ esta vacio rellene por favor.", "error");
-          return false;
-         }
-
-         if(curp == null || curp.length == 0){
-          sweetAlert("Oops...", "El campo del CURP esta vacio rellene por favor.", "error");
-          return false;
-         }
-
-        if(boot == null || boot.length == 0){
-          sweetAlert("Oops...", "El campo del BOOT TIK esta vacio rellene por favor.", "error");
-          return false;
-         }
-
-         
-         if(hard == null || hard.length == 0){
-          sweetAlert("Oops...", "El campo HARDWARE ID  esta vacio rellene por favor.", "error");
-          return false;
-         }
-         
-         
-         if(number == null || number.length == 0 || tipoeq == "LAPTOP_MX"){
-          sweetAlert("Oops...", "El campo PRIVISIONAL NUMBER esta vacio rellene por favor.", "error");
-          return false;
-         }
-         
-         if(nombre == null || nombre.length == 0){
-          sweetAlert("Oops...", "El campo de Nombre completo del solicitante  esta vacio rellene por favor.", "error");
-          return false;
-         }
-         if(cel == null || cel.length == 0){
-          sweetAlert("Oops...", "El campo Tel o Cel esta vacio por favor rellene por favor.", "error");
-          return false;
-         }
-         if(correo == null || correo.length == 0){
-          sweetAlert("Oops...", "El campo Correo Electronico esta vacio por favor rellene por favor.", "error");
-          return false;
-         }
-      }
+      
 
        $("#aceptar").click(function(){
-
-        var tipoeq = document.getElementById("equipo").value;
-        var serie = document.getElementById("serie").value;
-        var clave = document.getElementById("clave").value;
-        var escuela = document.getElementById("escu").value;
-        var loc = document.getElementById("loc").value;
-        var mun = document.getElementById("mun").value;
-        var nino = document.getElementById("nino").value;
-        var curp = document.getElementById("curp").value;
-
-        var boot =   document.getElementById("boot").value;
-        var hard =   document.getElementById("hard").value;
-        var number = document.getElementById("churro").value;
-        var nombre = document.getElementById("nombre").value;
-        var cel =    document.getElementById("cel").value;
-        var correo = document.getElementById("correo").value;
-            
             if(validarDatos() == true){
             insertarDatos(
                 $("#serie").val(),
@@ -350,32 +325,39 @@
                 $("#curp").val(),
                 $("#boot").val(),
                 $("#hard").val(),
-                $("#churro").val());
-                $("#nombre").val());
-                $("#cel").val());
-                $("#correo").val());
+                $("#number").val(),
+                $("#diagnostico").val(),
+                $("#nombre").val(),
+                $("#cel").val(),
+                $("#correo").val(),
+                $("#equipo").val());
             }
            });
             
          
 
-        function insertarDatos(serie,clave,escuela,loc,mun,nombre_nino,curp,boot,hardware,provisional,namecomplet,telcel,correo){
+        function insertarDatos(serie,clave,escuela,loc,mun,nombre_nino,curp,boot,hardware,provisional,diagnostico,namecomplet,telcel,correo,tipoeq){
            
-            var arreglo = {noserie:serie,
-                           codteclado:teclado,
-                           codmother:mother,
-                           codpantalla:pantalla,
-                           coddd:dd,
-                           codram:ram,
-                           codwlan:wlan,
-                           codred:red,
-                           bateria:bateria,
-                           cargador:cargador};
+            var arreglo = { noserie:serie,
+                            clavecct:clave,
+                            escuela:escuela,
+                            Localidad:loc,
+                            municipio:mun,
+                            nombre_nino:nombre_nino,
+                            curp:curp,
+                            boot:boot,
+                            hardware:hardware,
+                            provisional:provisional,
+                            diagnostico:diagnostico,
+                            namecomplet:namecomplet,
+                            telcel:telcel,
+                            correo:correo,
+                            tipoeq:tipoeq};
 
             var resultado = 0;
             $.ajax({
                 type:'POST',
-                url: '../Controllers/insertarPiezarepController.php',
+                url: '../Controllers/insertarlaptabController.php',
                 async:false,
                 data:arreglo,
                 success:function(xresultado){
@@ -384,12 +366,25 @@
                    console.log(resultado);
                    if(resultado.Registrado == 1){
 
-                    sweetAlert("Buen Trabajo","DATOS GUARDADOS CON EXITO","success");
-                    LimpiarCampos();
                    
-                    }else{
+                   swal({
+                   title: "BUEN TRABAJO!",
+                   text: "DATOS GUARDADOS CON EXITO, NOSOTROS NOS PONDREMOS EN CONTACTO EN CUANTO EL CODIGO O ARCHIVO SEA GENERADO.",
+                   type: "success",
+                   showCancelButton: false,
+                   confirmButtonColor: "#ff0000",
+                   confirmButtonText: "Aceptar",
+                   closeOnConfirm: true
+                   },
+                   function(){
+                   window.location.href='../index.php';
+                   });
 
-                    sweetAlert("Cuidado", "DATOS NO GUARDADO.", "error");
+                   
+                   
+                   }else{
+
+                    sweetAlert("Cuidado", "DATOS NO GUARDADO OCURRIO UN ERROR ACTUALICE LA PAGINA Y VUELVA A RELLENAR LOS CAMPOS.", "Danger");
 
                    }    
                 }
