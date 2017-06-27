@@ -36,6 +36,7 @@
              <a href="index.html"><i class="fa fa-th-large"></i> <span class="nav-label">Equipos MX</span> <span class="fa arrow"></span></a>
              <ul class="nav nav-second-level collapse">
              <li><a href="<?PHP $_SERVER['DOCUMENT_ROOT']?>/sicat/reportes_equipos/">Capturar equipo</a></li>
+             <li><a href="<?PHP $_SERVER['DOCUMENT_ROOT']?>/sicat/reportes_equipos/adminequipo.php">Administrar Equipos</a></li>
              <li><a href="<?PHP $_SERVER['DOCUMENT_ROOT']?>/sicat/reportes_equipos/capturado.php">Equipo Capturado</a></li>
              <li><a href="<?PHP $_SERVER['DOCUMENT_ROOT']?>/sicat/reportes_equipos/reportados.php">Equipo Reportado</a></li>
              </ul>            

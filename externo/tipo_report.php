@@ -185,9 +185,7 @@
           
             
             <?PHP
-            include("aula_medios/modal_am.php");
-            include("solucion/modal_solu.php");
-            include("laptab/modal_tablap.php");
+            
 
             ?>
 
