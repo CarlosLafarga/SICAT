@@ -2,14 +2,34 @@
 	include("conexion.php");
 
 	function consultarct($clavecct){
+
 		$cn=  Conectarse();
+            if(empty($clavecct)){
+
+                  echo '<script>
+                   swal({
+                   title: "Algo Anda Mal!",
+                   text: "Campo Clavecct Esta Vacio",
+                   type: "warning",
+                   showCancelButton: false,
+                   confirmButtonColor: "#ff0000",
+                   confirmButtonText: "Aceptar",
+                   closeOnConfirm: true
+                   },
+                   function(){
+                   window.location.href="index.php";
+                   });
+                   </script> ';
+
+            }else{
+
 		$consultar = "SELECT * FROM ct_escuelas WHERE clavecct LIKE '%$clavecct%' ";
 		$ejecutar = mysql_query($consultar,$cn) or die(mysql_error());
 		 
 
 		if(mysql_num_rows($ejecutar) > 0 ){
 
-			  echo '<script>
+			 echo '<script>
                    swal({
                    title: "Buen Trabajo!",
                    text: "Clave encontrada en mi base de datos.",
@@ -44,6 +64,7 @@
 		}
 
 	}
+   }
 
 
 	function datosescolares($clavecct){

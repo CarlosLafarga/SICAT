@@ -56,7 +56,7 @@
             <div class="ibox-title">
             <h5>Desbloqueo Laptop y Tablet MX</h5>
             <div class="ibox-tools">
-            
+            <a style="color:#FF0000;" href="../Archivos/Manual.docx" download="Manual Llenado de Formulario" ><i class="fa fa-download"></i>&nbsp;Manual de Llenado</a>
             </div>
             </div>
             <div class="ibox-content">

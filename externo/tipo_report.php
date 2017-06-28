@@ -163,7 +163,7 @@
                             <h4 class="media-heading">Desbloqueo laptop y tablet mx</h4>
                             <p>Apoyo para solicitud de codigos o Archivos para desbloqueo de Tabletas y laptop mx entregadas a ni&ntilde;os en a&ntilde;o 2013 2014 y 2015 del estado de Sonora.</p>
                             <div class="text-right">
-                                <a class="btn btn-primary" href="<?PHP $_SERVER['DOCUMENT_ROOT']?>/sicat/externo/laptab/codigos_laptab.php?clave=<?php echo $_GET['clavecct'];?>">Reportar</a>
+                                <a class="btn btn-primary" href="<?PHP $_SERVER['DOCUMENT_ROOT']?>/sicat/externo/laptab/codigos_laptab.php">Reportar</a>
                             </div>
                         </div>
                 </div>
@@ -183,13 +183,7 @@
             
 
           
-            
-            <?PHP
-            include("aula_medios/modal_am.php");
-            include("solucion/modal_solu.php");
-            include("laptab/modal_tablap.php");
-
-            ?>
+           
 
             <div class="footer">
             <div class="pull-right">
@@ -253,90 +247,7 @@
 
   
 
-     function validarFormulario(){
-
-        var tipoeq = document.getElementById("equipo").value;
-        var serie = document.getElementById("serie").value;
-        var clave = document.getElementById("clave").value;
-        var escuela = document.getElementById("escu").value;
-        var loc = document.getElementById("loc").value;
-        var mun = document.getElementById("serie").value;
-        var nino = document.getElementById("nino").value;
-        var curp = document.getElementById("curp").value;
-
-        var boot =   document.getElementById("boot").value;
-        var hard =   document.getElementById("hard").value;
-        var number = document.getElementById("churro").value;
-        var nombre = document.getElementById("nombre").value;
-        var cel =    document.getElementById("cel").value;
-        var correo = document.getElementById("correo").value;
-
-        if(serie == null || serie.length == 0){
-          sweetAlert("Oops...", "El campo del No serie esta vacio rellene por favor.", "error");
-          return false;
-         }
-
-         if(clave == null || clave.length == 0){
-          sweetAlert("Oops...", "El campo del Clave CT esta vacio rellene por favor.", "error");
-          return false;
-         }
-
-          if(escuela == null || escuela.length == 0){
-          sweetAlert("Oops...", "El campo del Escuela esta vacio rellene por favor.", "error");
-          return false;
-         }
-
-          if(loc == null || loc.length == 0){
-          sweetAlert("Oops...", "El campo del Localidad esta vacio rellene por favor.", "error");
-          return false;
-         }
-
-          if(mun == null || mun.length == 0){
-          sweetAlert("Oops...", "El campo del Municipio esta vacio rellene por favor.", "error");
-          return false;
-         }
-
-         if(nino == null || nino.length == 0){
-          sweetAlert("Oops...", "El campo del Nombre del Niñ@ esta vacio rellene por favor.", "error");
-          return false;
-         }
-
-         if(curp == null || curp.length == 0){
-          sweetAlert("Oops...", "El campo del CURP esta vacio rellene por favor.", "error");
-          return false;
-         }
-
-        if(boot == null || boot.length == 0){
-          sweetAlert("Oops...", "El campo del BOOT TIK esta vacio rellene por favor.", "error");
-          return false;
-         }
-
-         
-         if(hard == null || hard.length == 0){
-          sweetAlert("Oops...", "El campo HARDWARE ID  esta vacio rellene por favor.", "error");
-          return false;
-         }
-         
-         
-         if(number == null || number.length == 0 || tipoeq == "LAPTOP_MX"){
-          sweetAlert("Oops...", "El campo PRIVISIONAL NUMBER esta vacio rellene por favor.", "error");
-          return false;
-         }
-         
-         if(nombre == null || nombre.length == 0){
-          sweetAlert("Oops...", "El campo de Nombre completo del solicitante  esta vacio rellene por favor.", "error");
-          return false;
-         }
-         if(cel == null || cel.length == 0){
-          sweetAlert("Oops...", "El campo Tel o Cel esta vacio por favor rellene por favor.", "error");
-          return false;
-         }
-         if(correo == null || correo.length == 0){
-          sweetAlert("Oops...", "El campo Correo Electronico esta vacio por favor rellene por favor.", "error");
-          return false;
-         }
-      }
-
+     
 
     </script>
 
