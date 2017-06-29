@@ -9,7 +9,7 @@
                </div>
                <div class="modal-body">
                <form method="POST" id="avanzada" name="avanzada" action="index.php" class="form-horizontal">
-               <div class="form-group"><label class="col-sm-2 control-label"><br/><small class="text-navy"></small></label>
+               
                         			
                 
                 
@@ -54,18 +54,24 @@
                 CURP <input disabled="true" disabled="true" name="curp" type="text" class="form-control">
                 </label>
 
-                <div class="checkbox i-checks"><label> <input type="checkbox" onclick="document.avanzada.mun.disabled=!document.avanzada.mun.disabled"  value="">
-                  <i></i> Municipio <input disabled="true" type="text" name= "mun" class="form-control"></label></div>
+                <label>
+                <input type="checkbox" onclick="document.avanzada.mun.disabled=!document.avanzada.mun.disabled"  value="">
+                Municipio
+                <input disabled="true" type="text" name= "mun" class="form-control">
+                </label>
 
-                <div class="checkbox i-checks"><label> <input type="checkbox" onclick="document.avanzada.loc.disabled=!document.avanzada.loc.disabled"  value="">
-                 <i></i> Localidad <input disabled="true" type="text" name="loc" class="form-control"></label></div>
+                <label>
+                <input type="checkbox" onclick="document.avanzada.loc.disabled=!document.avanzada.loc.disabled"  value="">
+                Localidad <input disabled="true" type="text" name="loc" class="form-control">
+                </label>
+                
 
                 
-                </div>
+                
                 <div class="hr-line-dashed"></div>
                 <div class="form-group">
                 <div class="col-sm-4 col-sm-offset-2">
-                <button class="btn btn-w-m btn-success" type="submit" name="avanzada1">Buscar</button>
+                <button class="btn btn-success" type="submit" name="avanzada1">Buscar</button>
                 </div>
                 </div>
                 </form>
