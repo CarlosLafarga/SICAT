@@ -183,7 +183,10 @@
             
 
           
+<<<<<<< HEAD
 
+=======
+>>>>>>> 8903bd77f9255038f8833ff462853987dc111ac7
 
             <div class="footer">
             <div class="pull-right">

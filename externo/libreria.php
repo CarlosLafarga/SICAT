@@ -40,7 +40,7 @@
                    closeOnConfirm: true
                    },
                    function(){
-                   window.location.href="tipo_report.php?clavecct='.$clavecct.'";
+                   window.location.href="laptab/codigos_laptab.php?clavecct='.$clavecct.'";
                    });
                    </script> ';
 

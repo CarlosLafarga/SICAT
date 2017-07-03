@@ -90,7 +90,31 @@ else
         </div>
         </div>
         <div class="ibox-content">
-       
+
+            <form name="subir" id="subir" method="POST" enctype="multipart/form-data">
+            <div class="row show-grid">
+            <div class="col-md-4">
+               <label>Tipo desbloqueo</label><br>
+               <select type="select" id="aula" name="aula" class="form-control" onChange="tipodes(this);">
+               <option value="arch" >Archivo</option>
+               <option value="codi" >Codigo</option>
+               </select>
+            </div>
+            <div  id="arch" style="display: none;" class="col-md-4">
+                <label>Archivo a subir.</label>
+                <input type="file" name="archivo" id="archivo" class="form-control">
+            </div>
+            <div id="codi" style="display: none;" class="col-md-4">
+                <label>Codigo Desbloqueo</label>
+                <input type="text" name="codigo" id="codigo" class="form-control">
+            </div>
+            <div class="row show-grid">
+            <div class="col-md-12">
+            <input type="button" name="aceptar" value="Subir" onClick="insertarArchivo();" class="btn btn-primary">
+            <input type="button" name="cancelar" value="Cancelar" class="btn btn-primary">
+            </div>
+            </div>
+            </form>
         </div>                    
         </div>
         </div>
@@ -113,7 +137,49 @@ else
         <!-- Custom and plugin javascript -->
         <script src="../js/inspinia.js"></script>
         <script src="../js/plugins/pace/pace.min.js"></script>
-       
+         <script type="text/javascript">
+
+        function tipodes(sel) {
+         if  (sel.value=="arch"){
+              AM = document.getElementById("arch");
+              AM.style.display = "";
+
+              HDT = document.getElementById("codi");
+              HDT.style.display = "none";
+
+         }else if(sel.value=="codi") {
+
+              AM = document.getElementById("arch");
+              AM.style.display = "none";
+
+              HDT = document.getElementById("codi");
+              HDT.style.display = "";
+          }
+         }
+
+         function insertarArchivo() {
+
+            var parametros = new FormData($("#subir")[0]);
+
+            $.ajax({
+                data:parametros,
+                url:"../Controllers/insertarArchivoController.php",
+                type:"POST",
+                contentType:false,
+                processData:false,
+                beforesend:function(){
+
+                },
+                success:function(response){
+
+                    
+                    sweetAlert("CUIDADO",response,"warning");
+                }
+            });
+         }
+
+
+    </script>
       </body>
       </html>
 <?php

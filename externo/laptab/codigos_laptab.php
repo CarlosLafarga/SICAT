@@ -1,3 +1,22 @@
+<?php 
+if(isset($_GET['clavecct'])){
+    $clavecct = $_GET['clavecct'];
+    include("../conexion.php");
+    $cn = Conectarse();
+    $sql = "SELECT * FROM ct_escuelas LEFT JOIN ct_direscolar ON ct_escuelas.clavecct = ct_direscolar.clavecct WHERE ct_escuelas.clavecct = '".$clavecct."'";
+    $ejecutar = mysql_query($sql,$cn) or die(mysql_error());
+    while ($row = mysql_fetch_array($ejecutar)){
+
+        $escuela = $row['nombrect'];
+        $localidad = $row['localidad'];
+        $municipio = $row['municipio'];
+
+    }
+
+}
+
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -81,19 +100,19 @@
             </div>
             <div class="col-md-4">
             <label>Clave CT:</label><br>
-            <input type="text" id="clave" placeholder="Ej: 26DPR0000H" name="clave" class="form-control">
+            <input type="text" id="clave" value="<?php echo $clavecct;?>" placeholder="Ej: 26DPR0000H" name="clave" class="form-control">
             </div>
             <div class="col-md-4">
             <label>Escuela:</label><br>
-            <input type="text" id="escu" placeholder="Ej: Benito juárez" name="escu" class="form-control">
+            <input type="text" id="escu" value="<?php echo $escuela;?>" placeholder="Ej: Benito juárez" name="escu" class="form-control">
             </div>
             <div class="col-md-4">
             <label>Localidad:</label><br>
-            <input type="text" id="loc" placeholder="Ej: Miguel Aleman" name="loc" class="form-control">
+            <input type="text" id="loc" value="<?php echo $localidad;?>" placeholder="Ej: Miguel Aleman" name="loc" class="form-control">
             </div>
             <div class="col-md-4">
             <label>Municipio:</label><br>
-            <input type="text" id="mun" placeholder="Ej: Hermosillo" name="mun" class="form-control">
+            <input type="text" id="mun" value="<?php echo $municipio;?>" placeholder="Ej: Hermosillo" name="mun" class="form-control">
             </div>
             
             <div class="col-md-4">
@@ -153,7 +172,7 @@
             <div class="row show-grid">
             <div class="col-md-12">
             <input type="button" id="aceptar" name="aceptar" value="Aceptar" class="btn btn-primary" >
-            <input type="button" name="cancelar" value="Cancelar" class="btn btn-primary" >
+            <input type="button" id="cancelar" name="cancelar" value="Cancelar" class="btn btn-primary" >
             </div>
             </div>
             </form> 
@@ -333,6 +352,12 @@
                 $("#equipo").val());
             }
            });
+
+           $("#cancelar").click(function(){
+            
+                window.location.href='../index.php';
+           });
+
             
          
 

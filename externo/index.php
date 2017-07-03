@@ -63,14 +63,16 @@
                     <input type="text" name="clavecct"  class="form-control" ><br>
                     <input type="submit" name="aceptar" value="Consular" class="btn btn-w-m btn-primary">
                 </form>
-            <a href="">Busqueda Avanzada</a>
+            <a  data-toggle="modal" data-target="#myModal" >Busqueda Avanzada</a>
             </div>
             </div>
             </div>
             </div>
             </div>
             </div>
-            </div> 
+            </div>
+             
+            <?PHP include("modal_avanzada.php"); ?>
 
             <div class="footer">
             <div class="pull-right">
