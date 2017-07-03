@@ -183,15 +183,7 @@
             
 
           
-<<<<<<< HEAD
-           
-=======
-            
-            <?PHP
-            
 
-            ?>
->>>>>>> b22c37fb287158698eb83fcb4f43ef2c48fa460b
 
             <div class="footer">
             <div class="pull-right">
@@ -252,10 +244,6 @@
       }
     }
 
-
-  
-
-     
 
     </script>
 
