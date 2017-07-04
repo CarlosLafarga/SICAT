@@ -183,14 +183,12 @@
             
 
           
-<<<<<<< HEAD
 
-=======
->>>>>>> 8903bd77f9255038f8833ff462853987dc111ac7
+
 
             <div class="footer">
             <div class="pull-right">
-            <strong>Ing.Carlos Octavio Preciado Lafarga</strong>
+            <strong></strong>
             </div>
             <div>
             <strong>Copyright</strong> Aulas de Tecnologia &copy; 2016-2017

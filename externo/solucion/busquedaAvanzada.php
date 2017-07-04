@@ -47,32 +47,57 @@
 
             <div class="wrapper wrapper-content animated fadeInRight">
             <div class="row">
-            <div class="col-lg-3">
-            </div>
-            <div class="col-lg-6">
+            <div class="col-lg-12">
             <div class="ibox float-e-margins">
             <div class="ibox-title">
-            <h5></h5>
+            <h5>Desbloqueo Laptop y Tablet MX</h5>
             <div class="ibox-tools">
-           
             </div>
             </div>
             <div class="ibox-content">
-                <form method="POST" name="externo">
-                    <label>Clave CT</label>
-                    <input type="text" name="clavecct"  class="form-control" ><br>
-                    <input type="submit" name="aceptar" value="Consular" class="btn btn-w-m btn-primary">
+                <form method="POST" id="avanzada" name="avanzada" action="index.php" class="form-horizontal">
+                <div class="row show-grid">
+
+                <div class="col-md-6">
+                <label>
+                <input type="checkbox" onclick="document.avanzada.clavee.disabled=!document.avanzada.clavee.disabled" id="clave" name="clave" value="">Clave Escuela 
+                <input disabled="true" type="text"  id="clavee" name="clavee" class="form-control">
+                </label>
+                </div>
+
+                <div class="col-md-6">
+                <label> 
+                <input type="checkbox"  onclick="document.avanzada.escuela.disabled=!document.avanzada.escuela.disabled"  value=""> 
+                Nombre Escuela 
+                <input disabled="true" type="text" name = "escuela" class="form-control">
+                </label>
+                </div>
+
+                <div class="col-md-6">
+                <label>
+                <input type="checkbox" onclick="document.avanzada.mun.disabled=!document.avanzada.mun.disabled"  value="">
+                Municipio
+                <input disabled="true" type="text" name= "mun" class="form-control">
+                </label>
+                </div>
+
+                <div class="col-md-6">
+                <label>
+                <input type="checkbox" onclick="document.avanzada.loc.disabled=!document.avanzada.loc.disabled"  value="">
+                Localidad <input disabled="true" type="text" name="loc" class="form-control">
+                </label>
+                </div>
+                <div class="hr-line-dashed"></div>
+                
+                <div class="col-md-12">
+                <button class="btn btn-primary" type="submit" name="avanzada1">Buscar</button>
+                </div>
+                </div>
                 </form>
-            <a href="busquedaAvanzada.php">Busqueda Avanzada</a>
-            </div>
-            </div>
-            </div>
-            </div>
-            </div>
+          
             </div>
             </div>
              
-            <?PHP include("modal_avanzada.php"); ?>
 
             <div class="footer">
             <div class="pull-right">
@@ -119,11 +144,4 @@
 </body>
 
 </html>
-<?PHP 
-    include("libreria.php");
-    if( isset($_POST["aceptar"])){
-    $clavecct = $_POST['clavecct'];
-    consultarct($clavecct);
-    }
 
-?>

@@ -3,10 +3,11 @@ if(isset($_GET['clavecct'])){
     $clavecct = $_GET['clavecct'];
     include("../conexion.php");
     $cn = Conectarse();
-    $sql = "SELECT * FROM ct_escuelas LEFT JOIN ct_direscolar ON ct_escuelas.clavecct = ct_direscolar.clavecct WHERE ct_escuelas.clavecct = '".$clavecct."'";
+    $sql = "SELECT * FROM ct_escuelas LEFT JOIN ct_direscolar ON ct_escuelas.clavecct = ct_direscolar.clavecct WHERE ct_escuelas.clavecct LIKE '%".$clavecct."%'";
     $ejecutar = mysql_query($sql,$cn) or die(mysql_error());
     while ($row = mysql_fetch_array($ejecutar)){
 
+        $clavecom = $row['clavecct'];
         $escuela = $row['nombrect'];
         $localidad = $row['localidad'];
         $municipio = $row['municipio'];
@@ -100,7 +101,7 @@ if(isset($_GET['clavecct'])){
             </div>
             <div class="col-md-4">
             <label>Clave CT:</label><br>
-            <input type="text" id="clave" value="<?php echo $clavecct;?>" placeholder="Ej: 26DPR0000H" name="clave" class="form-control">
+            <input type="text" id="clave" value="<?php echo $clavecom;?>" placeholder="Ej: 26DPR0000H" name="clave" class="form-control">
             </div>
             <div class="col-md-4">
             <label>Escuela:</label><br>
@@ -183,13 +184,14 @@ if(isset($_GET['clavecct'])){
             </div>
             </div>
             </div>
+            
             </div>
             </div>
 
 
             <div class="footer">
             <div class="pull-right">
-            <strong>Ing.Carlos Octavio Preciado Lafarga</strong>
+            <strong></strong>
             </div>
             <div>
             <strong>Copyright</strong> Aulas de Tecnologia &copy; 2016-2017
