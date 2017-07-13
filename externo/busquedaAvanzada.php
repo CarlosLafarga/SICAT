@@ -13,6 +13,7 @@
     <link href="<?PHP $_SERVER['DOCUMENT_ROOT']?>/sicat/css/animate.css" rel="stylesheet">
     <link href="<?PHP $_SERVER['DOCUMENT_ROOT']?>/sicat/css/style.css" rel="stylesheet">
     <link href="<?PHP $_SERVER['DOCUMENT_ROOT']?>/sicat/css/plugins/sweetalert/sweetalert.css" rel="stylesheet">
+    <link href="<?PHP $_SERVER['DOCUMENT_ROOT']?>/sicat/css/plugins/dataTables/datatables.min.css" rel="stylesheet">
     
 
 </head>
@@ -36,7 +37,11 @@
 
         </ul>
         <ul class="nav navbar-top-links navbar-right">
-                    
+            <li>
+            <a href="<?PHP $_SERVER['DOCUMENT_ROOT']?>/sicat/externo">
+             <i class="fa fa-arrow-left"></i> Pagina Principal
+            </a>
+           </li>      
         </ul>
         </div>
         </nav>
@@ -50,19 +55,20 @@
             <div class="col-lg-12">
             <div class="ibox float-e-margins">
             <div class="ibox-title">
-            <h5>Busqueda Avanzada</h5>
+            <h5>Lista Escuelas</h5>
             <div class="ibox-tools">
             
             </div>
             </div>
             <div class="ibox-content">
-                <form method="POST" id="avanzada" name="avanzada"  class="form-horizontal">
+                <form method="POST" id="avanzada"  name="avanzada" action="buscador.php" onsubmit="return validarDatos()" class="form-horizontal">
                 <div class="row show-grid">
 
                 <div class="col-md-4">
                 <label>
-                <input type="checkbox" onclick="document.avanzada.clavee.disabled=!document.avanzada.clavee.disabled" id="clave" name="clave" value="">Clave Escuela 
-                <input disabled="true" type="text"  id="clavee" name="clavee" class="form-control">
+                <input type="checkbox" onclick="document.avanzada.clavee.disabled=!document.avanzada.clavee.disabled" value="">
+                Clave Escuela 
+                <input disabled="true" type="text"  id="clave" name="clavee" class="form-control">
                 </label>
                 </div>
 
@@ -70,7 +76,7 @@
                 <label> 
                 <input type="checkbox"  onclick="document.avanzada.escuela.disabled=!document.avanzada.escuela.disabled"  value=""> 
                 Nombre Escuela 
-                <input disabled="true" type="text" name = "escuela" class="form-control">
+                <input disabled="true" type="text" id="escuela" name="escuela" class="form-control">
                 </label>
                 </div>
 
@@ -78,24 +84,30 @@
                 <label>
                 <input type="checkbox" onclick="document.avanzada.mun.disabled=!document.avanzada.mun.disabled"  value="">
                 Municipio
-                <input disabled="true" type="text" name= "mun" class="form-control">
+                <input disabled="true" type="text" id="mun" name="mun" class="form-control">
                 </label>
                 </div>
 
                 <div class="col-md-4">
                 <label>
                 <input type="checkbox" onclick="document.avanzada.loc.disabled=!document.avanzada.loc.disabled"  value="">
-                Localidad <input disabled="true" type="text" name="loc" class="form-control">
+                Localidad <input disabled="true" type="text" id="loc" name="loc" class="form-control">
                 </label>
                 </div>
                 <div class="hr-line-dashed"></div>
                 
                 <div class="col-md-12">
                 <button class="btn btn-primary" type="submit" name="avanzada1">Buscar</button>
-                <button class="btn btn-primary" type="button" name="cancelar">Cancelar</button>
+                <button class="btn btn-primary" id="cancelar" type="button" name="cancelar">Cancelar</button>
+                <input type="hidden" name="clavecct" value="<?php echo $_POST['clavee'];?>">
+                <input type="hidden" name="nombrect" value="<?php echo $_POST['escuela'];?>">
+                <input type="hidden" name="muni" value="<?php echo $_POST['mun'];?>">
+                <input type="hidden" name="loca" value="<?php echo $_POST['loc'];?>">
                 </div>
                 </div>
                 </form>
+
+             
 
             </div>
             </div>
@@ -128,6 +140,7 @@
     <script src="<?PHP $_SERVER['DOCUMENT_ROOT']?>/sicat/js/plugins/metisMenu/jquery.metisMenu.js"></script>
     <script src="<?PHP $_SERVER['DOCUMENT_ROOT']?>/sicat/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
     <script src="<?PHP $_SERVER['DOCUMENT_ROOT']?>/sicat/js/plugins/sweetalert/sweetalert.min.js"></script>
+    <script src="../js/plugins/dataTables/datatables.min.js"></script>
 
     <!-- Custom and plugin javascript -->
     <script src="<?PHP $_SERVER['DOCUMENT_ROOT']?>/sicat/js/inspinia.js"></script>
@@ -145,44 +158,29 @@
     <script src="<?PHP $_SERVER['DOCUMENT_ROOT']?>/sicat/js/plugins/peity/jquery.peity.min.js"></script>
     <!-- Peity demo -->
     <script src="<?PHP $_SERVER['DOCUMENT_ROOT']?>/sicat/js/demo/peity-demo.js"></script>
+
     <script type="text/javascript">
-          $(document).on("ready", function(){
+        function validarDatos(){
 
-             listar();
-             
+            var error = 0;
+            if($("#clave").val() == "" ) error +=1;
+            if($("#escuela").val() == "" )error +=1;
+            if($("#mun").val() == "" )error +=1;
+            if($("#loc").val() == "" )error +=1;
+            if(error == 4){
+                sweetAlert("Cuidado", "Debe de rellenar campo no serie.", "error");
+                return false;
+            }else{
 
-          });
+              return true;
+          }
+           }
 
-          var listar = function(){
+           $("#cancelar").click(function(){
             
-            var table = $("#dt_reportado").DataTable({
-                "destroy":true,
-                "ajax":{
-                    "method" : "POST",
-                    "url": "../Controllers/listarPiezasController.php"
-                },
-                "columns":[
-                    {"data":"Id"},
-                    {"data":"no_serie"},
-                    {"data":"teclado_cod"},
-                    {"data":"motherboard_cod"},
-                    {"data":"pantalla_cod"},
-                    {"data":"discoduro_cod"},
-                    {"data":"memoriaram_cod"},
-                    {"data":"wlan_cod"},
-                    {"data":"redboard_cod"},
-                    {"data":"bateria_cod"},
-                    {"data":"cargador_cod"},
-                    {"defaultContent": "<button class='editar btn btn-primary' href='#' id='mod' data-toggle='modal' data-target='#modal_pieza'><i class='fa fa-edit'></i></button>"}
-                ]
-            });
-
-            
-
-        }
+                window.location.href='index.php';
+           });
     </script>
-
-    
 
 </body>
 

@@ -133,6 +133,7 @@ else
         <script src="../js/inspinia.js"></script>
         <script src="../js/plugins/pace/pace.min.js"></script>
         <script type="text/javascript">
+        
         $(document).on("ready", function(){
 
              listar();

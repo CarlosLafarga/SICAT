@@ -2,7 +2,7 @@
 include("../conexion.php");
 $cn = Conectarse();
 
-$select = "SELECT * FROM ct_escuelas  ORDER BY clavecct DESC ";
+$select = "SELECT ct_escuelas.clavecct,ct_escuelas.nombrect,tur_des,localidad,municipio FROM ct_escuelas LEFT JOIN ct_direscolar ON ct_escuelas.clavecct = ct_direscolar.clavecct ORDER BY ct_escuelas.clavecct DESC ";
 $result = mysql_query($select,$cn);
 
 

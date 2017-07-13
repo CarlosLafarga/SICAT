@@ -72,7 +72,7 @@
             </div>
             </div>
              
-            <?PHP include("modal_avanzada.php"); ?>
+            
 
             <div class="footer">
             <div class="pull-right">
