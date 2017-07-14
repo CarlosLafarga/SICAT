@@ -49,6 +49,13 @@
              <li><a href="<?PHP $_SERVER['DOCUMENT_ROOT']?>/sicat/reportes_equipos/modificarPieza.php">Listado Piezas</a></li>
              </ul>            
              </li>
+
+             <li>
+             <a href="index.html"><i class="fa fa-th-large"></i> <span class="nav-label">Usuarios</span> <span class="fa arrow"></span></a>
+             <ul class="nav nav-second-level collapse">
+             <li><a href="<?PHP $_SERVER['DOCUMENT_ROOT']?>/sicat/usuarios/index.php">Control de Usuarios</a></li>
+             </ul>            
+             </li>
              </ul>
 
         </div>
