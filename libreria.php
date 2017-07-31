@@ -23,6 +23,7 @@
 
 
      function consultarEsc($clavecct){
+      
             $cn=  Conectarse();
             $query  = "SELECT * FROM ct_escuelas 
             LEFT JOIN ct_alumnos ON ct_escuelas.clavecct = ct_alumnos.clavecct 

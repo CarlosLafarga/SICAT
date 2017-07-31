@@ -1,5 +1,6 @@
 <?php
 include('../libreria.php');
+include_once('../Controllers/usuariosController.php');
 @require_once("../sesion.class.php");
 $sesion = new sesion();
 $usuario = $sesion->get("usuario");
@@ -89,12 +90,63 @@ else
 
         <div class="wrapper wrapper-content">  
         <!--ESTE ES EL CONTENIDO PRINCIPAL DEL SISTEMA  WEB-->
-        
-                
+                    <div class="wrapper wrapper-content animated fadeInRight">
+                    <div class="row">
+                    <div class="col-lg-12">
+                    <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                    <h5>Usuarios</h5>
+                    <div class="ibox-tools">
+                    <a class="collapse-link">
+                    <i class="fa fa-chevron-up"></i>
+                    </a>
+                   
+                    </div>
+                    </div>
+                    <div class="ibox-content">
+                    <div class="">
+                    <a  class="btn btn-primary " href="#" id="new_user" data-toggle="modal" data-target="#modal_new_user">Nuevo Usuario</a>
+                    </div>
+                    <div class="table-responsive">
+                    <table class="table table-striped table-bordered table-hover dataTables-example" >
+                    <thead>
+                    <tr>
+                        <th>id</th>
+                        <th>Usuario</th>
+                        <th>Nombre Usuario</th>
+                        <th>Correo</th>
+                        <th>Telefono</th>
+                        <th>Celular</th>
+                        <th>funciones</th>
+                    </tr>
+
+                    </thead>
+                    <tbody>
+                    <?PHP $b = listar();?>
+                    </tbody>
+                    <tfoot>
+                    <tr>
+                        <th>id</th>
+                        <th>Usuario</th>
+                        <th>Nombre Usuario</th>
+                        <th>Correo</th>
+                        <th>Telefono</th>
+                        <th>Celular</th>
+                        <th>funciones</th>
+                    </tr>
+                    </tfoot>
+                    </table>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            </div>
+       
         </div>
         <!--FOOTER DE PLATILLA--> 
         <?php include("../include/footer.php");?>
-
+        <?php  include("../modals/modal_new_users.php");?>
         </div>
         </div>
 
@@ -111,6 +163,37 @@ else
         <script src="../js/plugins/pace/pace.min.js"></script>
         
       </body>
+      <script>
+        $(document).ready(function(){
+            $('.dataTables-example').DataTable({
+                dom: '<"html5buttons"B>lTfgitp',
+                buttons: [
+                    { extend: 'copy'},
+                    {extend: 'csv'},
+                    {extend: 'excel', title: 'ExampleFile'},
+                    {extend: 'pdf', title: 'ExampleFile'},
+
+                    {extend: 'print',
+                     customize: function (win){
+                            $(win.document.body).addClass('white-bg');
+                            $(win.document.body).css('font-size', '10px');
+
+                            $(win.document.body).find('table')
+                                    .addClass('compact')
+                                    .css('font-size', 'inherit');
+                    }
+                    }
+                ]
+
+            });
+
+       
+
+
+        });
+
+        
+    </script>
       </html>
 <?php
 
