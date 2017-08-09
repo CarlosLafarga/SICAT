@@ -6,8 +6,8 @@
            <div class="modal-content animated bounceInRight">
            <div class="modal-header">
            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-           <i class="fa fa-edit modal-icon"></i>
-           <h4 class="modal-title">Editar Captura</h4>
+           <i class="fa fa-user modal-icon"></i>
+           <h4 class="modal-title">Nuevo Usuario</h4>
            <small class="font-bold"></small>
            </div>
            <div class="modal-body">
@@ -17,19 +17,14 @@
             <div class="col-lg-12">
             <div class="ibox float-e-margins">
             <div class="ibox-title">
-            <h5>Editar Equipo</h5>
+            <h5>Nuevo Usuario</h5>
             <div class="ibox-tools">
             
             </div>
             </div>
             <div class="ibox-content">
-            <form name="new_user" id="new_user" method="POST" >
-
-            <input type="hidden"  hidden id="id_pieza" name="id" value="" class="form-control">
-            <input type="hidden"  hidden id="opcion" name="opcion" value="modificar" class="form-control">
-
+            <form name="new_user" id="new_user" method="POST" onsubmit="return validarFormulario()" >
             <div class="row show-grid">
-
             <div class="col-md-4">
             <label>Nombre Usuario:</label>&nbsp;<small class="text-navy"></small><br>
             <input type="text"   id="name_user" name="name_user" class="form-control">
@@ -37,7 +32,7 @@
             </div>
             <div class="col-md-4">
             <label>Password:</label>&nbsp;<small class="text-navy"></small><br>
-            <input type="text" id="pass" name="pass" class="form-control">
+            <input type="password" id="pass" name="pass" class="form-control">
             </div>
             <div class="col-md-4">
             <label>Nombre Completo:</label><br>
@@ -59,18 +54,24 @@
             <div class="col-md-4">
             <label>Puesto:</label><br>
             <select name="puesto" id="puesto" class="form-control">
+
               <option value="">Seleccione un Puesto</option>
-              <option value="brigadista">Brigadista</option>
-              <option value="programador">Programador</option>
-              <option value="mesa de ayuda">Mesa de Ayuda</option>
-              <option value="externo">Externo</option>
+              <option value="0">Administrador</option>
+              <option value="1">Programador</option>
+              <option value="2">Brigadista</option>
+              <option value="3">Mesa de Ayuda</option>
+              <option value="4">Garantia</option>
+              <option value="5">Vehiculos</option>
+              <option value="6">Servicio Social</option>
+              <option value="7">Externo</option>
+              
             </select>
             </div>
            
             </div>
             <div class="row show-grid">
             <div class="col-md-12">
-            <input type="submit" name="guardar" id="guardar" class="btn btn-primary btn-sm" value="Guardar">
+            <input type="submit" name="insertar" id="insertar" class="btn btn-primary btn-sm" value="Guardar">
             </div>
             </div>
              

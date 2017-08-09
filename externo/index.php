@@ -63,7 +63,7 @@
                     <input type="text" name="clavecct"  class="form-control" ><br>
                     <input type="submit" name="aceptar" value="Consular" class="btn btn-w-m btn-primary">
                 </form>
-            <a href="busquedaAvanzada.php">Busqueda Avanzada</a>
+            <a href="busquedaAvanzada.php">Encuentra tu Escuela</a>
             </div>
             </div>
             </div>

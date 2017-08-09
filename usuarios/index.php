@@ -105,7 +105,7 @@ else
                     </div>
                     <div class="ibox-content">
                     <div class="">
-                    <a  class="btn btn-primary " href="#" id="new_user" data-toggle="modal" data-target="#modal_new_user">Nuevo Usuario</a>
+                    <a  class="btn btn-primary " href="" id="new_user" data-toggle="modal" data-target="#modal_new_user">Nuevo Usuario</a>
                     </div>
                     <div class="table-responsive">
                     <table class="table table-striped table-bordered table-hover dataTables-example" >
@@ -165,6 +165,8 @@ else
       </body>
       <script>
         $(document).ready(function(){
+
+
             $('.dataTables-example').DataTable({
                 dom: '<"html5buttons"B>lTfgitp',
                 buttons: [
@@ -187,15 +189,18 @@ else
 
             });
 
-       
+           
 
 
         });
+
+         
 
         
     </script>
       </html>
 <?php
-
+    
+   
 }
 ?>
