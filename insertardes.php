@@ -91,12 +91,12 @@ else
         </div>
         <div class="ibox-content">
 
-            <form name="subir_archivo"  method="POST" enctype="multipart/form-data">
+            <form name="subir_archivo"  method="POST" enctype="multipart/form-data" onsubmit="return validacion()" >
             <div class="row show-grid">
             <!--1.1-->
             <div class="col-md-4">
                <label>Tipo desbloqueo</label><br>
-               <select type="select" id="aula" name="tipodess" class="form-control" onChange="tipodes(this);">
+               <select type="select" id="option" name="tipodess" class="form-control" onChange="tipodes(this);">
                <option value="codi" >Codigo</option>
                <option value="arch" >Archivo</option>
                </select>
@@ -196,6 +196,34 @@ else
             
                 window.location.href='adminequipo.php';
            });
+
+
+
+       function validacion(){
+
+        var codigo = document.getElementById("codigo").value;
+        var archivo = document.getElementById("archivo").value;
+        var opcion = document.getElementById("option").value;
+
+        
+            if (opcion == "codi") {
+
+            if(codigo == null || curp.length < 10  ){
+             sweetAlert("Cuidado", "Ingrese el codigo de el equipo a desbloquear.", "error");
+             return false;
+             }
+
+            }else{
+
+            if(serie == null ){
+            sweetAlert("Cuidado", "Seleccione Archivo de el equipo a desbloquear", "error");
+            return false;
+
+            }
+        
+
+        }
+    }
     </script>
 
 
