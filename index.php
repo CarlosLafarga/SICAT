@@ -43,6 +43,13 @@
         <input name="pswd" type="password" class="form-control" placeholder="Password" required="">
         </div>
         <button type="submit" name="iniciar" class="btn btn-primary block full-width m-b">Inicar Sesion</button>
+
+
+
+
+
+
+        
 	      <a href="#">
         
         </a>
