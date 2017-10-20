@@ -1,5 +1,5 @@
 <?php
-include("../libreria.php");
+//include("../libreria.php");
 @require_once("../sesion.class.php");
 $sesion = new sesion();
 $usuario = $sesion->get("usuario");
@@ -84,33 +84,69 @@ else
         <div class="col-lg-12">
         <div class="ibox float-e-margins">
         <div class="ibox-title">
-        <h5>Equipos Reportados</h5>
+        <h5>Capturar codigo o Subir archivo</h5>
         <div class="ibox-tools">
             
         </div>
         </div>
         <div class="ibox-content">
-        <div class="table-responsive">
-        <form method="POST"  action>
-        <input type="hidden"  id="idserie" name="idserie" value="0">
-        </form>
-        <table id="dt_reportado" class="table table-bordered table-hover" cellspacing="0" >
-        <thead>
-        <tr>
-          <th>Folio</th>
-          <th>No Serie</th>
-          <th>Curp</th>
-          <th>Nombre Niño</th>
-          <th>Boot Tik</th>
-          <th>Hardware ID</th>
-          <th>Provisional Number</th>
-          <th>Tipo Equipo</th>
-          <th>Accion</th>
-        </tr>
-        </thead>
-        </table>
-        
-        </div>
+
+            <form name="subir_archivo"  method="POST" enctype="multipart/form-data">
+            <div class="row show-grid">
+            <!--1.1-->
+            <div class="col-md-4">
+               <label>Tipo desbloqueo</label><br>
+               <select type="select" id="aula" name="tipodess" class="form-control" onChange="tipodes(this);">
+               <option value="codi" >Codigo</option>
+               <option value="arch" >Archivo</option>
+               </select>
+            </div>
+            <!--1.2-->
+            <div  id="arch" style="display: none;" class="col-md-4">
+                <label>Archivo a subir.</label>
+                <input type="file" name="archivo" id="archivo" class="form-control">
+                 
+            </div>
+            <!--1.3-->
+            <div id="codi" style="display: ;" class="col-md-4">
+                <label>Codigo Desbloqueo</label>
+                <input type="text" name="codigo" id="codigo" class="form-control">
+            </div>
+            <br>
+            <div class="row show-grid">
+            <?php 
+                include("../Controllers/insertarArchivocontroller.php");
+                if(isset($_POST['aceptar'])){
+
+                    $serie = $_GET['serie'];
+                    $id = $_GET['id'];
+                    $tipodes = $_POST['tipodess'];
+                    $codigo = $_POST['codigo'];
+
+
+                    if($tipodes == 'arch'){
+                    
+                    $subir = uploadArch($_FILES,$serie,$id);  
+
+                 }else if ($tipodes == 'codi') {
+                    
+                    $subir = uploadCodi($codigo,$serie,$id);
+
+                 }
+                }
+                
+             ?>
+         </div>
+         </div>
+
+            <br>
+            <div class="row show-grid">
+                 <div class="col-md-12">
+                       <input type="submit" name="aceptar" value="Subir"  class="btn btn-primary">
+                       <input type="button" name="cancelar" value="Cancelar" id="cancelar" class="btn btn-primary">
+                 </div>
+            </div>
+            </form>
         </div>                    
         </div>
         </div>
@@ -130,62 +166,40 @@ else
         <script src="../js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
         <script src="../js/plugins/dataTables/datatables.min.js"></script>
         <script src="../js/plugins/iCheck/icheck.min.js"></script>
-
-    
-
         <!-- Custom and plugin javascript -->
         <script src="../js/inspinia.js"></script>
         <script src="../js/plugins/pace/pace.min.js"></script>
+        
         <script type="text/javascript">
-        
-        $(document).on("ready", function(){
 
-             listar();
-             
-        });
+        function tipodes(sel) {
+         if  (sel.value=="arch"){
+              AM = document.getElementById("arch");
+              AM.style.display = "";
 
-        
+              HDT = document.getElementById("codi");
+              HDT.style.display = "none";
 
+         }else if(sel.value=="codi") {
 
-        var listar = function(){
+              AM = document.getElementById("arch");
+              AM.style.display = "none";
+
+              HDT = document.getElementById("codi");
+              HDT.style.display = "";
+          }
+         }
+
+         
+
+        $("#cancelar").click(function(){
             
-
-            var table = $("#dt_reportado").DataTable({
-                "destroy":true,
-                "ajax":{
-                    "method" : "POST",
-                    "url": "../Controllers/listarEquiposDesController.php"
-                },
-                "columns":[
-                    {"data":"id"},
-                    {"data":"no_serie"},
-                    {"data":"curp"},
-                    {"data":"nombre_nino"},
-                    {"data":"boot_tik"},
-                    {"data":"hardware_id"},
-                    {"data":"provisional_num"},
-                    {"data":"tipo_equipo"},
-                    {"defaultContent": "<button type='button'  class='desbloquear btn btn-primary'>Desbloqueo</button>"}
-                    
-                ]
-            });
+                window.location.href='adminequipo.php';
+           });
+    </script>
 
 
-            obtener_serie("#dt_reportado",table);
-
-        }
-
-        var obtener_serie = function(tbody,table){
-                $(tbody).on("click", "button.desbloquear", function(){
-                    var data = table.row($(this).parents("tr")).data();
-                    var serie = $("#idserie").val(data.no_serie);
-                    location.href = "insertardes.php?serie="+data.no_serie+"&id="+data.id+"";
-                    console.log(data.no_serie);
-                });
-        }
-
-
-        </script>
+    </script>
       </body>
       </html>
 <?php

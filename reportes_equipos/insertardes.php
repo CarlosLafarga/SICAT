@@ -1,5 +1,5 @@
 <?php
-include("../libreria.php");
+//include("../libreria.php");
 @require_once("../sesion.class.php");
 $sesion = new sesion();
 $usuario = $sesion->get("usuario");
@@ -91,28 +91,60 @@ else
         </div>
         <div class="ibox-content">
 
-            <form name="subir" id="subir" method="POST" enctype="multipart/form-data">
+            <form name="subir_archivo"  method="POST" enctype="multipart/form-data">
             <div class="row show-grid">
+            <!--1.1-->
             <div class="col-md-4">
                <label>Tipo desbloqueo</label><br>
-               <select type="select" id="aula" name="aula" class="form-control" onChange="tipodes(this);">
-               <option value="arch" >Archivo</option>
+               <select type="select" id="aula" name="tipodess" class="form-control" onChange="tipodes(this);">
                <option value="codi" >Codigo</option>
+               <option value="arch" >Archivo</option>
                </select>
             </div>
+            <!--1.2-->
             <div  id="arch" style="display: none;" class="col-md-4">
                 <label>Archivo a subir.</label>
                 <input type="file" name="archivo" id="archivo" class="form-control">
+                 
             </div>
-            <div id="codi" style="display: none;" class="col-md-4">
+            <!--1.3-->
+            <div id="codi" style="display: ;" class="col-md-4">
                 <label>Codigo Desbloqueo</label>
                 <input type="text" name="codigo" id="codigo" class="form-control">
             </div>
+            <br>
             <div class="row show-grid">
-            <div class="col-md-12">
-            <input type="button" name="aceptar" value="Subir" onClick="insertarArchivo();" class="btn btn-primary">
-            <input type="button" name="cancelar" value="Cancelar" class="btn btn-primary">
+            <?php 
+                include("../Controllers/insertarArchivocontroller.php");
+                if(isset($_POST['aceptar'])){
+
+                    $serie = $_GET['serie'];
+                    $id = $_GET['id'];
+                    $tipodes = $_POST['tipodess'];
+                    $codigo = $_POST['codigo'];
+
+
+                    if($tipodes == 'arch'){
+                    
+                    $subir = uploadArch($_FILES,$serie,$id);  
+
+                 }else if ($tipodes == 'codi') {
+                    
+                    $subir = uploadCodi($codigo,$serie,$id);
+
+                 }
+                }
+                
+             ?>
+         </div>
             </div>
+
+            <br>
+            <div class="row show-grid">
+                 <div class="col-md-12">
+                       <input type="submit" name="aceptar" value="Subir"  class="btn btn-primary">
+                       <input type="button" name="cancelar" value="Cancelar" id="cancelar" class="btn btn-primary">
+                 </div>
             </div>
             </form>
         </div>                    
@@ -137,7 +169,8 @@ else
         <!-- Custom and plugin javascript -->
         <script src="../js/inspinia.js"></script>
         <script src="../js/plugins/pace/pace.min.js"></script>
-         <script type="text/javascript">
+        
+        <script type="text/javascript">
 
         function tipodes(sel) {
          if  (sel.value=="arch"){
@@ -157,26 +190,13 @@ else
           }
          }
 
-         function insertarArchivo() {
+         
 
-            var parametros = new FormData($("#subir")[0]);
-
-            $.ajax({
-                data:parametros,
-                url:"../Controllers/insertarArchivoController.php",
-                type:"POST",
-                contentType:false,
-                processData:false,
-                beforesend:function(){
-
-                },
-                success:function(response){
-
-                    
-                    sweetAlert("CUIDADO",response,"warning");
-                }
-            });
-         }
+        $("#cancelar").click(function(){
+            
+                window.location.href='adminequipo.php';
+           });
+    </script>
 
 
     </script>

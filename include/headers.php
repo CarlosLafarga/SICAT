@@ -12,8 +12,11 @@
             <div class="title-action">
             <form id="formbuscar" name="buscarclave" method="post" >
             <label>Clavecct:</label><br>
-            <input type="text" style='text-transform: uppercase;'name="clavect" class="form-control" id="clavecct" ><br>
-            <button type="submit" name="buscar"   class="btn btn-primary btn-sm"><i class='fa fa-search' ></i>Buscar</button>
+            <div class="input-group">
+            <input type="text" style='text-transform: uppercase;' name="clavect" class="form-control" id="clavecct" >
+            <span class="input-group-btn">
+            <button type="submit" name="buscar" class="btn btn-primary"><i class='fa fa-search'></i></button></span>
+            </div>
             </form>
             </div>
             </div>

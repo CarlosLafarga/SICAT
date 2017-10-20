@@ -1,4 +1,4 @@
-  <div class="sidebar-collapse">
+             <div class="sidebar-collapse">
              <a class="close-canvas-menu"><i class="fa fa-times"></i></a>
              <ul class="nav metismenu" id="side-menu">
              <li class="nav-header">

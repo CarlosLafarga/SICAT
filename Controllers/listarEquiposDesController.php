@@ -2,7 +2,7 @@
 include("../conexion.php");
 $cn = Conectarse();
 
-$select = "SELECT * FROM ct_equipos_rep WHERE cancelada = 0  AND status = 'reportado' ORDER BY id DESC ";
+$select = "SELECT * FROM ct_equipos_rep WHERE cancelada = 0  AND status = 'reportado' AND codigo_des ='' AND archivo_des =''ORDER BY id DESC ";
 $result = mysql_query($select,$cn);
 
 
@@ -17,7 +17,9 @@ if(!$result){
 		$arreglo["data"][] = $data;
 
 	}
+
 	echo json_encode($arreglo);
+
 }
 mysql_free_result($result);
 mysql_close($cn);

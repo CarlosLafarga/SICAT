@@ -6,7 +6,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <title>INSPINIA | Login 2</title>
+        <title>SICAM</title>
 
         <link href="css/bootstrap.min.css" rel="stylesheet">
         <link href="font-awesome/css/font-awesome.css" rel="stylesheet">
@@ -42,9 +42,9 @@
         <div class="form-group">
         <input name="pswd" type="password" class="form-control" placeholder="Password" required="">
         </div>
-        <button type="submit" name="iniciar" class="btn btn-primary block full-width m-b">Login</button>
+        <button type="submit" name="iniciar" class="btn btn-primary block full-width m-b">Inicar Sesion</button>
 	      <a href="#">
-        <small>Forgot password?</small>
+        
         </a>
 
         <p class="text-muted text-center">
