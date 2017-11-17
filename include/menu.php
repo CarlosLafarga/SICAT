@@ -38,7 +38,16 @@
              <li><a href="<?PHP $_SERVER['DOCUMENT_ROOT']?>/sicat/reportes_equipos/reportados.php">Equipo Reportado</a></li>
              </ul>            
              </li>
+
+
               <li>
+             <a href="index.html"><i class="fa fa-th-large"></i> <span class="nav-label">Conectividad</span> <span class="fa arrow"></span></a>
+             <ul class="nav nav-second-level collapse">
+             <li><a href="<?PHP $_SERVER['DOCUMENT_ROOT']?>/sicat/conectividad/reporteFalla.php">Reportes con Falla</a></li>
+             </ul>            
+             </li>
+
+             <li>
              <a href="index.html"><i class="fa fa-th-large"></i> <span class="nav-label">Inventario MX</span> <span class="fa arrow"></span></a>
              <ul class="nav nav-second-level collapse">
              <li><a href="<?PHP $_SERVER['DOCUMENT_ROOT']?>/sicat/reportes_equipos/capPieza.php">Capturar Piezas</a></li>
