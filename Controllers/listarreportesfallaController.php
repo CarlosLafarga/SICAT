@@ -2,7 +2,7 @@
 include("../conect/conexion2.php");
 $cn = Conectarse();
 
-$select = "SELECT * FROM reportes_conect WHERE visita_report = 2";
+$select = "SELECT * FROM reportes_conect WHERE visita_report = 2 AND NumReporte = '' ";
 $result = mysql_query($select,$cn);
 
 

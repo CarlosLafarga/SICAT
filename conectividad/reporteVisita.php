@@ -111,6 +111,7 @@ else
           <th>Proveedor</th>
           <th>Pagado Por</th>
           <th>Identificador</th>
+          <th>Fecha de Alta</th>
           <th>Diagnostico</th>
           <th>Seguimiento</th>
           <th>Acciones</th>

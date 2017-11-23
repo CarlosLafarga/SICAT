@@ -23,24 +23,10 @@ else
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <title>SICAT V3</title>
+        <title>Reportes Conectividad Falla</title>
 
-        <link href="../css/bootstrap.min.css" rel="stylesheet">
-        <link href="../font-awesome/css/font-awesome.css" rel="stylesheet">
-        <link href="../css/plugins/sweetalert/sweetalert.css" rel="stylesheet">
-        <link href="../css/plugins/dataTables/datatables.min.css" rel="stylesheet">
-        <link href="../css/plugins/iCheck/custom.css" rel="stylesheet">
+        <?php include("../include/css.php");?>
 
-
-        <link href="../css/animate.css" rel="stylesheet">
-        <link href="../css/style.css" rel="stylesheet">
-        <script src="../js/plugins/sweetalert/sweetalert.min.js"></script>
-        <link href="../css/plugins/awesome-bootstrap-checkbox/awesome-bootstrap-checkbox.css" rel="stylesheet">
-
-     
-     
-      
-        
        
         </head>
 
@@ -84,7 +70,7 @@ else
         <div class="col-lg-12">
         <div class="ibox float-e-margins">
         <div class="ibox-title">
-        <h5>Equipos Reportados</h5>
+        <h5>Reportes De Falla</h5>
         <div class="ibox-tools">
             
         </div>
@@ -102,15 +88,6 @@ else
           <th>Nombre Escuela</th>
           <th>Localidad</th>
           <th>Municipio</th>
-          <th>Nombre Director</th>
-          <th>Cel Director</th>
-          <th>Nombre Contacto</th>
-          <th>Cel Contacto</th>
-          <th>Num Reporte</th>
-          <th>Servicio</th>
-          <th>Proveedor</th>
-          <th>Pagado Por</th>
-          <th>Identificador</th>
           <th>Fecha de Alta</th>
           <th>Diagnostico</th>
           <th>Seguimiento</th>
@@ -132,19 +109,7 @@ else
         </div>
         </div>
 
-        <!-- Mainly scripts -->
-        <script src="../js/jquery-2.1.1.js"></script>
-        <script src="../js/bootstrap.min.js"></script>
-        <script src="../js/plugins/metisMenu/jquery.metisMenu.js"></script>
-        <script src="../js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
-        <script src="../js/plugins/dataTables/datatables.min.js"></script>
-        <script src="../js/plugins/iCheck/icheck.min.js"></script>
-
-    
-
-        <!-- Custom and plugin javascript -->
-        <script src="../js/inspinia.js"></script>
-        <script src="../js/plugins/pace/pace.min.js"></script>
+        <?php include("../include/js.php");?>
         <script type="text/javascript">
         
         $(document).on("ready", function(){
@@ -152,56 +117,6 @@ else
              listar();
              
         });
-
-        
-
-
-        var listar = function(){
-            
-
-            var table = $("#reportfalla").DataTable({
-                "destroy":true,
-                "ajax":{
-                    "method" : "POST",
-                    "url": "../Controllers/listarreportesfallaController.php"
-                },
-                "columns":[
-                    {"data":"id"},
-                    {"data":"clave"},
-                    {"data":"escuela"},
-                    {"data":"loc"},
-                    {"data":"mun"},
-                    {"data":"name_direct"},
-                    {"data":"cel_dir"},
-                    {"data":"name_contact"},
-                    {"data":"cel_contact"},
-                    {"data":"NumReporte"},
-                    {"data":"servicio"},
-                    {"data":"proveedor"},
-                    {"data":"pagopor"},
-                    {"data":"ide"},
-                    {"data":"fechaAlta"},
-                    {"data":"diagnostico"},
-                    {"data":"seguimiento"},
-                    {"defaultContent": "<button type='button'  class='Editar btn btn-primary'>Editar Reporte</button>"}
-                    
-                ]
-            });
-
-
-            obtener_serie("#reportfalla",table);
-
-        }
-
-        var obtener_serie = function(tbody,table){
-                $(tbody).on("click", "button.Editar", function(){
-                    var data = table.row($(this).parents("tr")).data();
-                    var serie = $("#idserie").val(data.no_serie);
-                    location.href = "insertardes.php?serie="+data.no_serie+"&id="+data.id+"";
-                    console.log(data.no_serie);
-                });
-        }
-
 
         </script>
       </body>
