@@ -19,15 +19,13 @@
                     {"defaultContent": "<button type='button'  class='Editar btn btn-primary'>Cambiar Estatus</button>"}
                     
                 ],
-                    dom: 'Bfrtip',  
+                    dom: '<"html5buttons"B>lTfgitp',  
                          //'Bfrtip',
 
                  "buttons":[                    
                     
                     {
-                        extend:    'excelHtml5',
-                        text:      '<button class="btn btn-primary" ><i class="fa fa-file-excel-o"></i>&nbsp; Exportar Excel</button>',
-                        titleAttr: 'Excel'
+                        extend: 'excel', title: 'ExampleFile'
                     }
                 ]
             });
