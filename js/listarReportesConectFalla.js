@@ -19,14 +19,12 @@
                     {"defaultContent": "<button type='button'  class='Editar btn btn-primary'>Cambiar Estatus</button>"}
                     
                 ],
-                    dom: '<"html5buttons"B>lTfgitp',  
+                    dom: '<"html5buttons"B>lTfgitp', 
                          //'Bfrtip',
 
                  "buttons":[                    
                     
-                    {
-                        extend: 'excel', title: 'ExampleFile'
-                    }
+                    {extend: 'excel', title: 'Reportes Con Falla'}
                 ]
             });
 

@@ -83,13 +83,15 @@ else
                  $id = $_GET['id'];
                  include("../conect/conexion2.php");
                  $cn = Conectarse();
-                 $sql = "SELECT * FROM reportes_conect WHERE id = '".$id."'";
-                 $ejecutar = mysql_query($sql,$cn) or die (mysql_error());
-                 while($reg = mysql_fetch_array($ejecutar)) {
+                 $sql = "SELECT * FROM reportes_conect WHERE id = $id ";
+                 $resultado = mysql_query($sql,$cn) or die (mysql_error());
+                 while($reg = mysql_fetch_array($resultado)) {
+
 
                  $folio = $reg['id'];
                  $clave = $reg['clave'];
-
+                 $escuela = $reg['escuela'];
+                 
                  }
                }
                ?>
@@ -97,9 +99,16 @@ else
                 <h3>Datos del centro de trabajo</h3>
                 <hr class="hr-line-dashed">
                 <div class="row">
-                  <div class="col-md-2"><label>Folio:</label><input value ="<?php echo $folio;?>" type="text" readonly class="form-control"></div>
-                  <div class="col-md-2"><label>Clave Ct:</label><input value ="<?php echo $clave;?>" type="text"  readonly class="form-control"></div>
-                  <div class="col-md-4"><label>Nombre Ct:</label><input type="text" readonly  class="form-control"></div>
+                    
+                  <div class="col-md-2"><label>Folio:</label>
+                  <input name="folio" value ="<?php echo $folio;?>" type="text" readonly class="form-control">
+                  </div>
+
+                  <div class="col-md-2"><label>Clave Ct:</label>
+                  <input value ="<?php echo $clave;?>" type="text"  readonly class="form-control">
+                  </div>
+
+                  <div class="col-md-4"><label>Nombre Ct:</label><input value ="<?php echo $escuela;?>"type="text" readonly  class="form-control"></div>
                   <div class="col-md-2"><label>Localidad:</label><input type="text" readonly  class="form-control"></div>
                   <div class="col-md-2"><label>Municipio:</label><input type="text" readonly  class="form-control"></div>
                 </div>
