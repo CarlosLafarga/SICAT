@@ -89,8 +89,6 @@ else
           <th>Localidad</th>
           <th>Municipio</th>
           <th>Fecha de Alta</th>
-          <th>Nombre Director</th>
-          <th>Celular Director</th>
           <th>Diagnostico</th>
           <th>Seguimiento</th>
           <th>Acciones</th>

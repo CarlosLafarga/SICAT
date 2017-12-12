@@ -1,5 +1,20 @@
         
+<?php
+include("libreria.php");
+@require_once("sesion.class.php");
+$sesion = new sesion();
+$usuario = $sesion->get("usuario");
 
+if( $usuario == false )
+{
+
+ echo "<script language='JavaScript'>";
+ echo "location = 'index.php'";
+ echo "</script>";
+}
+else
+{
+ ?>
         <!DOCTYPE html>
         <html>
 
@@ -57,7 +72,14 @@
         <?php include("include/headers.php"); ?>
 
         <div class="wrapper wrapper-content"> 
-                  <!----> 
+                <?php
+                 if(isset($_POST['buscar'])){
+                    $clavecct = $_POST['clavect'];
+                    $b = consultarEsc($clavecct);
+                   }
+                ?>
+                  <!--
+                     
                    <div class="col-lg-3">
                         <div class="ibox float-e-margins">
                             <div class="ibox-title">
@@ -71,7 +93,7 @@
                             </div>
                         </div>
                     </div>
-                    <!---->
+                    
                     <div class="col-lg-3">
                         <div class="ibox float-e-margins">
                             <div class="ibox-title">
@@ -85,7 +107,7 @@
                             </div>
                         </div>
                     </div>
-                    <!---->
+                    
                     <div class="col-lg-3">
                         <div class="ibox float-e-margins">
                             <div class="ibox-title">
@@ -98,7 +120,8 @@
                                 <small>Total income</small>
                             </div>
                         </div>
-                    </div>
+                    </div>-->
+
 
 
         </div>
@@ -123,6 +146,7 @@
         <script type="text/javascript">
         
         $(document).ready(function(){
+
             $('.dataTables-example').DataTable({
                 dom: '<"html5buttons"B>lTfgitp',
                 buttons: [
@@ -154,4 +178,7 @@
       </script>
       </body>
       </html>
+      <?php
       
+}
+?>

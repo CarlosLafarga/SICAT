@@ -1,11 +1,11 @@
-  var listar = function(){
+  var listarSeguimiento = function(){
             
 
-            var table = $("#reportfalla").DataTable({
+            var table = $("#dt_segui").DataTable({
                 "destroy":true,
                 "ajax":{
                     "method" : "POST",
-                    "url": "../Controllers/listarreportesfallaController.php"
+                    "url": "../Controllers/ListarReportesSeguimientoController.php"
                 },
                 "columns":[
                     {"data":"id"},
@@ -14,13 +14,14 @@
                     {"data":"loc"},
                     {"data":"mun"},
                     {"data":"fechaAlta"},
+                    {"data":"NumReporte"},
                     {"data":"name_direct"},
                     {"data":"cel_dir"},
                     {"data":"diagnostico"},
                     {"data":"seguimiento"},
-                    {"defaultContent": "<button type='button'  class='Editar btn btn-primary'>Cambiar Estatus</button>"}
+                    {"defaultContent": "<button type='button'  class='Editar btn btn-primary'>Cerrar Reporte</button>"}
                     
-                ],
+               ],
                     dom: '<"html5buttons"B>lTfgitp', 
                          //'Bfrtip',
 
@@ -31,7 +32,7 @@
             });
 
 
-            obtener_serie("#reportfalla",table);
+            obtener_serie("#dt_segui",table);
 
         }
 
@@ -39,8 +40,10 @@
 
                 $(tbody).on("click", "button.Editar", function(){
                     var data = table.row($(this).parents("tr")).data();
-                    location.href = "cambiarStatusFalla.php?id="+data.id+"";
+                    location.href = "cerrarReporte.php?id="+data.id+"";
                     
                 });
         }
+
+        
 

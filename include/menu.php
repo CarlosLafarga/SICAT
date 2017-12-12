@@ -24,13 +24,13 @@
 
              <!--Inician los items-->
              <li>
-             <a href="index.html"><i class="fa fa-th-large"></i> <span class="nav-label">Pagina Principal</span> <span class="fa arrow"></span></a>
+             <a href="index.html"><i class="fa fa-home"></i> <span class="nav-label">Pagina Principal</span> <span class="fa arrow"></span></a>
              <ul class="nav nav-second-level collapse">
              <li><a href="<?PHP $_SERVER['DOCUMENT_ROOT']?>/sicat/principal.php">Buscar CT</a></li>
              </ul>            
              </li>
              <li>
-             <a href="index.html"><i class="fa fa-th-large"></i> <span class="nav-label">Equipos MX</span> <span class="fa arrow"></span></a>
+             <a href="index.html"><i class="fa fa-laptop"></i> <span class="nav-label">Equipos MX</span> <span class="fa arrow"></span></a>
              <ul class="nav nav-second-level collapse">
              <li><a href="<?PHP $_SERVER['DOCUMENT_ROOT']?>/sicat/reportes_equipos/adminequipo.php">Administrar Equipos</a></li>
              <li><a href="<?PHP $_SERVER['DOCUMENT_ROOT']?>/sicat/reportes_equipos/">Capturar equipo</a></li>
@@ -41,14 +41,16 @@
 
 
               <li>
-             <a href="index.html"><i class="fa fa-th-large"></i> <span class="nav-label">Conectividad</span> <span class="fa arrow"></span></a>
+             <a href="index.html"><i class="fa fa-wifi"></i> <span class="nav-label">Conectividad</span> <span class="fa arrow"></span></a>
              <ul class="nav nav-second-level collapse">
              <li><a href="<?PHP $_SERVER['DOCUMENT_ROOT']?>/sicat/conectividad/reporteFalla.php">Reportes con Falla</a></li>
+             <li><a href="<?PHP $_SERVER['DOCUMENT_ROOT']?>/sicat/conectividad/reporteSeguimientoFalla.php">Reportes en Seguimiento</a></li>
+             <li><a href="<?PHP $_SERVER['DOCUMENT_ROOT']?>/sicat/conectividad/reporteVisita.php">Reportes con Visita</a></li>
              </ul>            
              </li>
 
              <li>
-             <a href="index.html"><i class="fa fa-th-large"></i> <span class="nav-label">Inventario MX</span> <span class="fa arrow"></span></a>
+             <a href="index.html"><i class="fa fa-archive"></i> <span class="nav-label">Inventario MX</span> <span class="fa arrow"></span></a>
              <ul class="nav nav-second-level collapse">
              <li><a href="<?PHP $_SERVER['DOCUMENT_ROOT']?>/sicat/reportes_equipos/capPieza.php">Capturar Piezas</a></li>
              <li><a href="<?PHP $_SERVER['DOCUMENT_ROOT']?>/sicat/reportes_equipos/cambiarPiezas.php">Cambiar  Piezas</a></li>
@@ -57,7 +59,7 @@
              </li>
 
              <li>
-             <a href="index.html"><i class="fa fa-th-large"></i> <span class="nav-label">Usuarios</span> <span class="fa arrow"></span></a>
+             <a href="index.html"><i class="fa fa-user"></i> <span class="nav-label">Usuarios</span> <span class="fa arrow"></span></a>
              <ul class="nav nav-second-level collapse">
              <li><a href="<?PHP $_SERVER['DOCUMENT_ROOT']?>/sicat/usuarios/index.php">Control de Usuarios</a></li>
              </ul>            

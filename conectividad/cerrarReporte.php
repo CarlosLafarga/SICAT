@@ -196,7 +196,7 @@ else
 
           $("#cancelar").click(function(){
             
-                window.location.href='reporteFalla.php';
+                window.location.href='reporteSeguimientoFalla.php';
            });
         </script>
         

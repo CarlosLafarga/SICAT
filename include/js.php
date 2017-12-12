@@ -19,3 +19,5 @@
 
         <!-- funciones del desarrollador -->
         <script src="<?PHP $_SERVER['DOCUMENT_ROOT']?>/sicat/js/listarReportesConectFalla.js"></script>
+        <script src="<?PHP $_SERVER['DOCUMENT_ROOT']?>/sicat/js/listarReportesVisita.js"></script>
+        <script src="<?PHP $_SERVER['DOCUMENT_ROOT']?>/sicat/js/listarReportesConectSeguimientoFalla.js"></script>

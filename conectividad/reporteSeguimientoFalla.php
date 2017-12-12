@@ -23,10 +23,24 @@ else
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <title>Reportes Conectividad Falla</title>
+        <title>SICAT V3</title>
 
-        <?php include("../include/css.php");?>
+        <link href="../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../font-awesome/css/font-awesome.css" rel="stylesheet">
+        <link href="../css/plugins/sweetalert/sweetalert.css" rel="stylesheet">
+        <link href="../css/plugins/dataTables/datatables.min.css" rel="stylesheet">
+        <link href="../css/plugins/iCheck/custom.css" rel="stylesheet">
 
+
+        <link href="../css/animate.css" rel="stylesheet">
+        <link href="../css/style.css" rel="stylesheet">
+        <script src="../js/plugins/sweetalert/sweetalert.min.js"></script>
+        <link href="../css/plugins/awesome-bootstrap-checkbox/awesome-bootstrap-checkbox.css" rel="stylesheet">
+
+     
+     
+      
+        
        
         </head>
 
@@ -70,7 +84,7 @@ else
         <div class="col-lg-12">
         <div class="ibox float-e-margins">
         <div class="ibox-title">
-        <h5>Reportes De Falla</h5>
+        <h5>Reportes en Seguimiento</h5>
         <div class="ibox-tools">
             
         </div>
@@ -80,7 +94,7 @@ else
         <form method="POST"  action>
         <input type="hidden"  id="idserie" name="idserie" value="0">
         </form>
-        <table id="reportfalla" class="table table-bordered table-hover" cellspacing="0" >
+        <table id="dt_segui" class="table table-bordered table-hover" cellspacing="0" >
         <thead>
         <tr>
           <th>Folio</th>
@@ -89,11 +103,12 @@ else
           <th>Localidad</th>
           <th>Municipio</th>
           <th>Fecha de Alta</th>
+          <th>Num Reporte</th>
           <th>Nombre Director</th>
           <th>Celular Director</th>
           <th>Diagnostico</th>
           <th>Seguimiento</th>
-          <th>Acciones</th>
+          <th>Accion</th>
         </tr>
         </thead>
         </table>
@@ -116,7 +131,7 @@ else
         
         $(document).on("ready", function(){
 
-             listar();
+             listarSeguimiento();
              
         });
 

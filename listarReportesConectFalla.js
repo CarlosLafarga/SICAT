@@ -14,8 +14,6 @@
                     {"data":"loc"},
                     {"data":"mun"},
                     {"data":"fechaAlta"},
-                    {"data":"name_direct"},
-                    {"data":"cel_dir"},
                     {"data":"diagnostico"},
                     {"data":"seguimiento"},
                     {"defaultContent": "<button type='button'  class='Editar btn btn-primary'>Cambiar Estatus</button>"}

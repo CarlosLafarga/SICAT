@@ -84,7 +84,7 @@ else
         <div class="col-lg-12">
         <div class="ibox float-e-margins">
         <div class="ibox-title">
-        <h5>Equipos Reportados</h5>
+        <h5>Reportes con visita</h5>
         <div class="ibox-tools">
             
         </div>
@@ -94,27 +94,17 @@ else
         <form method="POST"  action>
         <input type="hidden"  id="idserie" name="idserie" value="0">
         </form>
-        <table id="dt_reportado" class="table table-bordered table-hover" cellspacing="0" >
+        <table id="dt_visita" class="table table-bordered table-hover" cellspacing="0" >
         <thead>
         <tr>
-          <th>Folio</th>
+        <th>Folio</th>
           <th>Clave Escuela</th>
           <th>Nombre Escuela</th>
           <th>Localidad</th>
           <th>Municipio</th>
-          <th>Nombre Director</th>
-          <th>Cel Director</th>
-          <th>Nombre Contacto</th>
-          <th>Cel Contacto</th>
-          <th>Num Reporte</th>
-          <th>Servicio</th>
-          <th>Proveedor</th>
-          <th>Pagado Por</th>
-          <th>Identificador</th>
           <th>Fecha de Alta</th>
           <th>Diagnostico</th>
           <th>Seguimiento</th>
-          <th>Acciones</th>
         </tr>
         </thead>
         </table>
@@ -132,67 +122,14 @@ else
         </div>
         </div>
 
-        <!-- Mainly scripts -->
-        <script src="../js/jquery-2.1.1.js"></script>
-        <script src="../js/bootstrap.min.js"></script>
-        <script src="../js/plugins/metisMenu/jquery.metisMenu.js"></script>
-        <script src="../js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
-        <script src="../js/plugins/dataTables/datatables.min.js"></script>
-        <script src="../js/plugins/iCheck/icheck.min.js"></script>
-
-    
-
-        <!-- Custom and plugin javascript -->
-        <script src="../js/inspinia.js"></script>
-        <script src="../js/plugins/pace/pace.min.js"></script>
+        <?php include("../include/js.php");?>
         <script type="text/javascript">
         
         $(document).on("ready", function(){
 
-             listar();
+             listarVisita();
              
         });
-
-        
-
-
-        var listar = function(){
-            
-
-            var table = $("#dt_reportado").DataTable({
-                "destroy":true,
-                "ajax":{
-                    "method" : "POST",
-                    "url": "../Controllers/listarEquiposDesController.php"
-                },
-                "columns":[
-                    {"data":"id"},
-                    {"data":"no_serie"},
-                    {"data":"curp"},
-                    {"data":"nombre_nino"},
-                    {"data":"boot_tik"},
-                    {"data":"hardware_id"},
-                    {"data":"provisional_num"},
-                    {"data":"tipo_equipo"},
-                    {"defaultContent": "<button type='button'  class='desbloquear btn btn-primary'>Desbloqueo</button>"}
-                    
-                ]
-            });
-
-
-            obtener_serie("#dt_reportado",table);
-
-        }
-
-        var obtener_serie = function(tbody,table){
-                $(tbody).on("click", "button.desbloquear", function(){
-                    var data = table.row($(this).parents("tr")).data();
-                    var serie = $("#idserie").val(data.no_serie);
-                    location.href = "insertardes.php?serie="+data.no_serie+"&id="+data.id+"";
-                    console.log(data.no_serie);
-                });
-        }
-
 
         </script>
       </body>
